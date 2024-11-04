@@ -446,10 +446,11 @@ OUTPUT: <br>
 [INSERT IMAGE]<br>
 
 Just like the previous graph, the graph for valence_% and acousticness_% also shows no correlation. This was observed since the plots show randomness. <br>
+___________________________________________________________________
 
 ### [PLATFORM POPULARITY]
 
-
+This section of the repository focuses on how the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare 
 
 ### [ADVANCED ANALYSIS]
 
