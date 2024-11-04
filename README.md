@@ -374,7 +374,82 @@ ___________________________________________________________________
 
 ### [GENRE AND MUSIC CHARACTERISTICS]
 
+This section of the repository focuses on the correlation between streams and musical attributes. <br><br>
+
+First, I was tasked to examine the correlation between streams and musical attributes like bpm, danceability_%, and energy_%. When it comes to correlations, the scatterplot always comes to mind. Hence, I opted for a scatterplot to display what was being asked. The syntax of the graph is as follows: <br>
+
+```
+#plot a figure 20x12 inches
+plt.figure(figsize=(20,12))
+
+#title
+plt.title('Correlation Between Streams and Musical Attributes') 
+
+#streams vs musical attributes
+plt.scatter(df['bpm'],df['streams'], color = 'purple')
+plt.scatter(df['danceability_%'],df['streams'], color = 'red')
+plt.scatter(df['energy_%'],df['streams'], color = 'green')
+
+plt.ylabel('No. of Streams') #x values
+plt.xlabel('Musical Attributes') #y values
+
+#legends 
+plt.legend(['bpm','danceability_%','energy_%'])
+```
+<br>
+
+OUTPUT:
+[INSERT IMAGE] <br>
+
+The graph suggests that the danceabilty_% and energy_% influence streams the most. As seen in the graph, danceability_% and energy_% range from 50 to close to 100 and are the most dense parts. This means that this range of musical attributes had more impact on the number of streams in comparison to the bpm_%. <br>
+
+The next task is to find out if there is a correlation between danceability_% and energy_%. To do this, I used another scatterplot to determine the correlation between the two. I used the following syntax: 
+
+```
+#plot a figure 20x10 inches
+plt.figure(figsize=(20,10))
+
+#title
+plt.title('Danceability vs. Energy') 
+
+#danceability vs. energy
+plt.scatter(df['danceability_%'],df['energy_%'], color = 'purple')
+
+plt.xlabel('Danceability%') #x values
+plt.ylabel('Energy%') #y values
+```
+<br>
+
+OUTPUT: <br>
+[INSERT IMAGE] <br>
+
+The plots are scattered equally across the graph. Hence, the graph suggests that there is no correlation between danceability and energy.<br><br>
+
+I was also tasked to find out the correlation between valence_% and acousticness_%. Just like the last graph, I also used a scatterplot to display their correlation. The syntax is pretty much the same:
+
+```
+#plot a figure 20x10 inches
+plt.figure(figsize=(20,10))
+
+#title
+plt.title('Valence vs. Acousticness') # title
+
+#valence vs. acousticness
+plt.scatter(df['valence_%'],df['acousticness_%'], color = 'lightgreen')
+
+plt.xlabel('Valence%') #x values
+plt.ylabel('Acousticness%') #y values
+```
+<br>
+
+OUTPUT: <br>
+[INSERT IMAGE]<br>
+
+Just like the previous graph, the graph for valence_% and acousticness_% also shows no correlation. This was observed since the plots show randomness. <br>
+
 ### [PLATFORM POPULARITY]
+
+
 
 ### [ADVANCED ANALYSIS]
 
