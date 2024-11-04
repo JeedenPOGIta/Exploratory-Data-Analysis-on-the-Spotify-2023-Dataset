@@ -450,16 +450,196 @@ ___________________________________________________________________
 
 ### [PLATFORM POPULARITY]
 
-This section of the repository focuses on how the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare 
+This section of the repository focuses on how the numbers of tracks in spotify_playlists, deezer_playlists, and apple_playlists compare. To find out, I first got the total number of tracks on each platform. I used the .sum() function on each of the columns like this: <br>
 
+```
+#get the number of tracks in each platform
+in_spotify_playlists_sum = df['in_spotify_playlists'].sum()
+in_deezer_playlists_sum = df['in_deezer_playlists'].sum()
+in_apple_playlists_sum = df['in_apple_playlists'].sum()
+```
+<br>
+
+OUTPUT: <br>
+```
+The number of tracks in each platform are:
+Spotify: 4955719
+Deezer: 95913.0
+Apple: 64625 
+```
+The results revealed that the leading platform is Spotify, with 4,955,719 tracks in playlists; followed by Deezer with 95,913 tracks, and Apple with 64,625 tracks. I wanted to show how these three compare in a much cleaner way. Hence, I created a bar graph comparing the number of tracks in a much more concise way. I achieved this by creating a data frame for the existing data and then creating a graph for it. The syntax I used is as follows: 
+
+```
+#create a dictionary to turn into a dataframe
+tracks = {'Spotify': in_spotify_playlists_sum, 'Deezer': in_deezer_playlists_sum, 'Apple': in_apple_playlists_sum}
+#create a dataframe from a dictionary
+tracks_df = pd.DataFrame.from_dict(tracks, orient = 'index', columns = ['Total Number of Tracks'])
+
+#plot
+plt.figure(figsize = (20,10)) #size ni fig
+tracks_df.plot(kind = 'bar', color = 'purple') #bar graph
+plt.title('Number of Tracks by Platform')
+
+plt.xlabel('Platform') #label of x
+plt.ylabel('Number of Tracks') #label of y
+```
+<br>
+
+OUTPUT: <br>
+[INSERT IMAGE HERE] <br>
+
+In this way, we can clearly see what platform is the most favored. <br><br>
+
+Onto the next task, for this one, I intend to find out which platform seems to favor the most popular tracks. I opted to use a scatter plot for this one
+and compare each of the platforms and their corresponding number of streams to see which platform favors the most popular tracks. So, I created a plot with three subplots displaying each of the platforms and their correlation with their number of streams. I did this using the following syntax:
+
+```
+#plot with 3 subplots
+fig, ax = plt.subplots(1,3, figsize=(20, 10))
+
+#first plot details
+ax[0].scatter(df['in_spotify_playlists'],df['streams'], color = 'lightgreen')
+ax[0].set_title('Streams vs. Total in_spotify_playlist')
+ax[0].set_xlabel('in_spotify_playlist')
+ax[0].set_ylabel('Streams')
+
+#second plot details
+ax[1].scatter(df['in_deezer_playlists'],df['streams'], color = 'purple')
+ax[1].set_title('Streams vs.Total in_deezer_playlist')
+ax[1].set_xlabel('in_deezer_playlist')
+ax[1].set_ylabel('Streams')
+
+#third plot details
+ax[2].scatter(df['in_apple_playlists'],df['streams'], color = 'lightblue')
+ax[2].set_title('Streams vs. Total in_apple_playlist')
+ax[2].set_xlabel('in_apple_playlist')
+ax[2].set_ylabel('Streams')
+
+#title
+plt.suptitle('Streams Vs. In_Playlist')
+```
+<br>
+
+OUTPUT: <br>
+[INSERT IMAGE HERE] <br>
+
+The graphs suggest that Spotify favors the most popular tracks as it has a positive correlation with the number of streams. Hence, this suggests that most of the streams are on Spotify and is the most favored out of all the platforms. <br>
+
+___________________________________________________________________
 ### [ADVANCED ANALYSIS]
 
+This section of the repository focuses on identifying patterns among tracks with the same key or mode. To find out, I used two types of graphs: a line and a bar graph. I used these graphs to easily identify a pattern if there is one. <br><br>
+
+First, I used a line graph to see the trend in the different keys and their corresponding number of streams. I achieved this using the following syntax:
+
+```
+#first plot details
+ax[0].plot(key_avg_streams['key'],key_avg_streams['streams'], color = 'pink') #bar plot
+ax[0].set_title('Keys Vs. Streams')
+ax[0].set_xlabel('Keys')
+ax[0].set_ylabel('Streams')
+```
+<br>
+
+OUTPUT: <br>
+[INSERT IMAGE HERE] <br>
+
+The graph suggests that there is an increase in the number of streams from the A key up until the C# key. The keys after C# experienced a slow decline in their number of streams. However, it is also worth noting that the notes with sharps (#) are higher than their original counterparts. For instance, tracks on the A# key have a significantly higher number of streams than tracks on the A key only. <br><br>
+
+For the modes, I opted to use a bar graph instead of a line graph since it only has two modes to compare with one another. To clearly see their differences, I thought that the bar graph would best represent this. I used the following syntax to create my bar graph:
+
+```
+#second plot details
+ax[1].bar(mode_avg_streams['mode'],mode_avg_streams['streams'], color = 'lightblue') #bar plot parin
+ax[1].set_title('Mode Vs. Streams')
+ax[1].set_xlabel('Mode')
+ax[1].set_ylabel('Streams')
+```
+<br>
+
+OUTPUT:<br>
+[INSERT IMAGE HERE]<br>
+
+And there we go; the output suggests that the tracks in the major mode have a higher number of streams than those in the minor mode. <br><br>
+
+For this last part, I was tasked to perform an analysis comparing the most frequently appearing artists on playlists and charts. For this, I first created a new data frame, which only included the necessary details for my analysis. These data include the sum of their appearances in both playlists and charts on each of the platforms. I used the following syntax to do so:
+
+```
+# create a dataframe with artist names, in playlists, and in charts
+ayokona = df[['artist(s)_name', 
+            'in_spotify_playlists', 'in_deezer_playlists', 'in_apple_playlists',
+            'in_spotify_charts','in_deezer_charts','in_apple_charts']].copy()
+
+#add new column - total appearances in playlists
+ayokona['Total Playlist Apperances'] = ayokona[['in_spotify_playlists', 'in_deezer_playlists', 'in_apple_playlists']].sum(axis = 1)
+
+#add new column - total appearances in charts
+ayokona['Total Chart Apperances'] = ayokona[['in_spotify_charts', 'in_deezer_charts', 'in_apple_charts']].sum(axis = 1)
+
+#add new column - total appearances in playlists and charts
+ayokona ['Total Appearances'] = ayokona[['Total Playlist Apperances','Total Chart Apperances']].sum(axis = 1)
+
+#group by artists then get total appearances
+grouping = ayokona.groupby('artist(s)_name')['Total Appearances'].sum().reset_index()
+#sort values by descending order
+groupingfinal = grouping.sort_values(by = 'Total Appearances', ascending = False)
+
+#stores the top 10 values
+final10 = groupingfinal.head(10)
+#indexes are from 1 to 10 
+final10.index = range(1,11)
+```
+<br>
+
+OUTPUT:<br>
+|    | artist(s)_name      |   Total Appearances |
+|---:|:--------------------|--------------------:|
+|  1 | The Weeknd          |              149419 |
+|  2 | Taylor Swift        |              138944 |
+|  3 | Ed Sheeran          |              132533 |
+|  4 | Harry Styles        |              115056 |
+|  5 | Eminem              |               88251 |
+|  6 | Arctic Monkeys      |               85963 |
+|  7 | Coldplay            |               77009 |
+|  8 | Avicii              |               68973 |
+|  9 | Adele               |               66980 |
+| 10 | Dr. Dre, Snoop Dogg |               66131 |
+
+<br>
+I created a bar graph so that the differences in the data of each artist are easily seen to further simplify the data presented. The following syntax is what I used to plot the graph: <br>
+
+```
+#figsize
+plt.figure(figsize=(20,10))
+
+#bar plot 
+plt.bar(final10['artist(s)_name'],final10['Total Appearances'], color = 'purple')
+
+#title
+plt.title('Total Number of Apperances of Artists in Playlists and Charts')
+
+plt.xlabel('Artists') #label of x
+plt.ylabel('Number of appearances') #label of y
+```
+<br>
+
+OUTPUT: <br>
+[INSERT IMAGE HERE] <br>
+
+And there we go! The bar graph suggests that The Weeknd had the most appearances in playlists and charts on Spotify 2023; closely followed by Taylor Swift and Ed Sheeran. <br>
+___________________________________________________________________
 ### [TAKEAWAYS]
 
+
+___________________________________________________________________
 ### [VERSION(s)]
 
-## [END OF REPOSITORY]
 
+___________________________________________________________________
+### [END OF REPOSITORY]
+And that is a wrap! This is the end of my repository on an exploratory data analysis on the Spotify 2023 dataset. Please let me know if you have any feedback, tips, tricks, or suggestions for improving my coding efficiency! Thank you once again!
 
+### [ACKNOWLEDGEMENT]
+I would like to acknowledge Ms. Ma. Madecheen Pangaliman and Mr. Nikko John Lobos for providing knowledge about Python pandas, data wrangling, and data visualization and for providing the guide in conducting an exploratory data analysis presented in the repository. Thank you to both of you!
 
 </div>
