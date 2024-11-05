@@ -37,11 +37,11 @@ in accessing the full raw dataset that was used in this mini project, you can fi
 
 https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023 <br>
 
-Just press download and you should be ready to use the dataset however you like! Kaggle is a website that contains many more
+Just press download, and you should be ready to use the dataset however you like! Kaggle is a website that contains many more
 raw datasets that can be explored and used for practice in data wrangling and visualization such as this. Credits to them for
-providing us with a platform to find these different datasets. <br><br>
+providing us with a platform to find these different datasets. <br>
 
-Going back to our data exploration, I loaded the dataset into the code so that I can explore it within the code using different
+Going back to our data exploration, I loaded the dataset into the code so that I could explore it within the code using different
 python functions. 
 
 ```
@@ -50,9 +50,9 @@ df = pd.read_csv('spotify-2023.csv')
 <br>
 
 However, I first ran into an error while trying to import the dataset into the code. I kept encountering the 
-"UTF-8 encoding error" which meant that the file is not in UTF-8 format. I surfed around the internet to find
+"UTF-8 encoding error," which meant that the file was not in UTF-8 format. I surfed around the internet to find
 a solution and found one provided by Saturn Cloud. It told me to check the encoding format my file is in by
-using a text editor like notepad++ and check the "Encoding" menu. After, I was able to successfully load the 
+using a text editor like Notepad++ and check the "Encoding" menu. After, I was able to successfully load the 
 file into the code by using the following syntax:
 
 ```
@@ -80,7 +80,6 @@ function. <br>
 #check for total number of missing values
 missing_sum = df.isnull().sum()
 ```
-<br>
 OUTPUT:
 
 ```
@@ -110,12 +109,9 @@ liveness_%               0
 speechiness_%            0
 dtype: int64
 ```
-<br>
 
 Tada! By using the .sum() function I was able to locate the total number of missing values in each column.
-The results then told me that there are 50 missing values in shazam_charts and 95 in the key columns respectively.
-
-<br>
+The results then told me that there are 50 missing values in shazam_charts and 95 in the key columns, respectively.<br>
 
 Now that I know there are missing values in the dataset, It's time for me to remove them. I achieved this using the 
 .dropna() function for both the rows and columns of the dataframe. 
@@ -130,17 +126,15 @@ ___________________________________________________________________
 
 ### [OVERVIEW OF THE DATASET]
 
-This section of the repository provides a basic information regarding the dataset. <br>
+This section of the repository provides  basic information regarding the dataset. <br>
 
-To start, I checked the scale of the dataset by checking the number of rows and columns I am dealing with.
+To start, I checked the scale of the dataset by checking the number of rows and columns I was dealing with.
 This was done using the .shape function of pandas:
 
 ```
 #No. of rows and columns
 df.shape
 ```
-<br>
-
 OUTPUT:
 ```
 (953, 24)
@@ -214,10 +208,7 @@ stream_median_rounded = round(stream_median, 2) #round to 2 decimals only
 stream_sd = df['streams'].std()
 stream_sd_rounded = round(stream_sd, 2) #round to 2 decimals only 
 ```
-<br>
-
 OUTPUT:
-
 ```
 The mean number of streams:
  514137424.94 
@@ -233,8 +224,8 @@ The standard deviation of streams:
 Up next, I was tasked to find out whether the distribution of the artist_counts and the song's year of release had any noticeable trends
 or outliers. For this section, I decided to use boxplots so that I could notice any outliers easily. <br><br>
 
-OUTPUT:
-[INSERT IMAGE HERE]
+OUTPUT: <br>
+
 
 <br>
 
