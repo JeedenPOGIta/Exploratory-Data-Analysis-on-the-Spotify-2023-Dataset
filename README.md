@@ -225,8 +225,7 @@ Up next, I was tasked to find out whether the distribution of the artist_counts 
 or outliers. For this section, I decided to use boxplots so that I could notice any outliers easily. <br><br>
 
 OUTPUT: <br>
-
-
+![YearVsArtistCount](https://github.com/user-attachments/assets/92157ed9-183e-4c08-9caa-d2e4458606fe)
 <br>
 
 As the graph suggests, there is a noticeable trend wherein the artist counts nearing the year 2000s had more artists deciding to collaborate with another
@@ -323,13 +322,13 @@ plt.xticks(track_numbers.index) #xticks
 plt.legend(['Number of Tracks']) #legend
 ```
 OUTPUT:
-[INSERT IMAGE] <br>
+![YearVsNo OfTracks](https://github.com/user-attachments/assets/f059229e-38d1-4901-963a-f7ecd3bc800f) <br>
 
 Analyze the trends in the number of tracks released over time. Plot the number of tracks released per year.
 
 The graph suggests that there was a big spike in the number of songs released in the year 2020. Going back to this year, the trend makes 
-sense because this was the start of the COVID-19 pandemic years, and everyone is stuck in their homes in fear of the virus. Hence, a lot of artists 
-had more time to release their creativity through songs as a way of relieving their boredom and communicating with the rest of the world other than
+sense because this was the start of the COVID-19 pandemic years, and everyone is stuck in their homes in fear of the virus. Hence, many artists
+had more time to release their creativity through songs to relieve their boredom and communicate with the rest of the world other than
 social media. <br>
 
 The next graph shows the number of releases per month. Just like the first graph, I started by counting the number of songs released in the "released_month" column using the .value_counts() function. <br>
@@ -343,7 +342,7 @@ track_numbers_monthly = df['released_month'].value_counts().sort_index()
 And I also used the line graph to display the data so that it is much easier to notice a trend if there is one. The following syntax was used:
 
 ```
-#number of no. of tracks vs. year
+#number of no. of tracks vs. month
 plt.plot(track_numbers_monthly.index,track_numbers_monthly.values, marker = 'o', color = 'tab:green')
 plt.title('Number of Tracks Released Across the Months') # title
 
@@ -356,9 +355,9 @@ plt.legend(['Number of Tracks']) #legend
 ```
 <br>
 OUTPUT:<br>
-[INSERT IMAGE]
+![MonthOfReleaseVs No OfTracks](https://github.com/user-attachments/assets/ea756093-ed49-460d-b95e-4e9b4d894159)
+<br>
 
-<br><br>
 The number of tracks released per month did not necessarily follow a noticeable pattern. As seen in the graph, the trend has an unstable pattern in which there is no guarantee that there will be a continuous growth or continuous decline in the number of songs released per month. The graph also implies that January has the most song releases so far.
 
 ___________________________________________________________________
@@ -390,9 +389,9 @@ plt.legend(['bpm','danceability_%','energy_%'])
 <br>
 
 OUTPUT:
-[INSERT IMAGE] <br>
+![MusicalAttributesVs Streams](https://github.com/user-attachments/assets/0f20e617-d29d-4d25-8cdf-23781f0137e9) <br>
 
-The graph suggests that the danceabilty_% and energy_% influence streams the most. As seen in the graph, danceability_% and energy_% range from 50 to close to 100 and are the most dense parts. This means that this range of musical attributes had more impact on the number of streams in comparison to the bpm_%. <br>
+The graph suggests that the danceabilty_% and energy_% influence streams the most. As seen in the graph, danceability_% and energy_% range from 50 to close to 100 and are the most dense parts. This means that this range of musical attributes had more impact on the number of streams than the bpm_%. <br>
 
 The next task is to find out if there is a correlation between danceability_% and energy_%. To do this, I used another scatterplot to determine the correlation between the two. I used the following syntax: 
 
@@ -412,7 +411,7 @@ plt.ylabel('Energy%') #y values
 <br>
 
 OUTPUT: <br>
-[INSERT IMAGE] <br>
+![DanceabilityVs Energy](https://github.com/user-attachments/assets/edfcb437-f222-4579-a75b-577d4b1784db) <br>
 
 The plots are scattered equally across the graph. Hence, the graph suggests that there is no correlation between danceability and energy.<br><br>
 
@@ -434,7 +433,7 @@ plt.ylabel('Acousticness%') #y values
 <br>
 
 OUTPUT: <br>
-[INSERT IMAGE]<br>
+![ValenceVs Acousticness](https://github.com/user-attachments/assets/12921ab3-abc0-4359-b44c-937d4f6fb3c2) <br>
 
 Just like the previous graph, the graph for valence_% and acousticness_% also shows no correlation. This was observed since the plots show randomness. <br>
 ___________________________________________________________________
@@ -477,7 +476,7 @@ plt.ylabel('Number of Tracks') #label of y
 <br>
 
 OUTPUT: <br>
-[INSERT IMAGE HERE] <br>
+![PlatformVsNo OfTracks](https://github.com/user-attachments/assets/95d37522-7fc8-44c9-8299-ca489c2a1e5a) <br>
 
 In this way, we can clearly see what platform is the most favored. <br><br>
 
