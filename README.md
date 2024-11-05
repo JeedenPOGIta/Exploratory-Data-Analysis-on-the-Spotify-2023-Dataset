@@ -355,8 +355,8 @@ plt.legend(['Number of Tracks']) #legend
 ```
 <br>
 OUTPUT:<br>
-![MonthOfReleaseVs No OfTracks](https://github.com/user-attachments/assets/ea756093-ed49-460d-b95e-4e9b4d894159)
-<br>
+
+![MonthOfReleaseVs No OfTracks](https://github.com/user-attachments/assets/73491349-38f0-403b-806f-65e65e1e1da6) <br>
 
 The number of tracks released per month did not necessarily follow a noticeable pattern. As seen in the graph, the trend has an unstable pattern in which there is no guarantee that there will be a continuous growth or continuous decline in the number of songs released per month. The graph also implies that January has the most song releases so far.
 
@@ -511,7 +511,7 @@ plt.suptitle('Streams Vs. In_Playlist')
 <br>
 
 OUTPUT: <br>
-[INSERT IMAGE HERE] <br>
+![PlatformVs Streams](https://github.com/user-attachments/assets/76191b80-c931-4614-b2ba-e244d1c0abb8) <br>
 
 The graphs suggest that Spotify favors the most popular tracks as it has a positive correlation with the number of streams. Hence, this suggests that most of the streams are on Spotify and is the most favored out of all the platforms. <br>
 
@@ -532,7 +532,7 @@ ax[0].set_ylabel('Streams')
 <br>
 
 OUTPUT: <br>
-[INSERT IMAGE HERE] <br>
+![StreamsVsKeys](https://github.com/user-attachments/assets/da968a62-1d67-413f-8655-a427e22e4871) <br>
 
 The graph suggests that there is an increase in the number of streams from the A key up until the C# key. The keys after C# experienced a slow decline in their number of streams. However, it is also worth noting that the notes with sharps (#) are higher than their original counterparts. For instance, tracks on the A# key have a significantly higher number of streams than tracks on the A key only. <br><br>
 
@@ -548,7 +548,7 @@ ax[1].set_ylabel('Streams')
 <br>
 
 OUTPUT:<br>
-[INSERT IMAGE HERE]<br>
+![StreamVsMode](https://github.com/user-attachments/assets/8869278b-9dab-4e6e-abe4-4a9501795e41)<br>
 
 And there we go; the output suggests that the tracks in the major mode have a higher number of streams than those in the minor mode. <br><br>
 
@@ -614,16 +614,20 @@ plt.ylabel('Number of appearances') #label of y
 <br>
 
 OUTPUT: <br>
-[INSERT IMAGE HERE] <br>
+![ArtistVsAppearance](https://github.com/user-attachments/assets/61f2c321-7ccf-43ce-bf5a-d54190e135af) <br>
 
 And there we go! The bar graph suggests that The Weeknd had the most appearances in playlists and charts on Spotify 2023; closely followed by Taylor Swift and Ed Sheeran. <br>
 ___________________________________________________________________
 ### [TAKEAWAYS]
 
+Phew! This mini-project has been a tough and wild ride. Of course, python, more specifically pandas, matplot, and seaborn, never fails to amaze me on how much they can aid us in cleaning and extracting data. As for my takeaways away from the coding part, I truly learned how to manage my time a bit better. Handling a big task such as this required me to strategically divide my time into bite-size working hours so that I could keep my sanity while doing the task. Overall, the task was very fulfilling and fun at the same time. I never really expected to experience the work of a data engineer this early on in my career but, it sure was worth it. I know that there are a lot more things that I can improve on, but at least I am now 1% better than who I was yesterday :D.
 
 ___________________________________________________________________
 ### [VERSION(s)]
 
+Version 1.1 - Fixed error in conversion of data to numeric values <br>
+Version 1.2 - Removed missing values <br>
+Version 1.3 - Cleaning
 
 ___________________________________________________________________
 ### [END OF REPOSITORY]
